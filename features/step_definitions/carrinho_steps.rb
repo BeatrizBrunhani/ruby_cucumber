@@ -1,23 +1,39 @@
-
-
-Dado('que o produto desejado é {string}') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Dado('que o produto desejado é {string}') do |produto|
+  @produto_nome = produto
 end
 
-Dado('o valor do produto é {string}') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Dado('o valor do produto é {string}') do |preco|
+  @produto_valor = preco
 end
 
-Quando('adiciono {int} unidade\(s)') do |int|
-# Quando('adiciono {float} unidade\(s)') do |float|
-  pending # Write code here that turns the phrase above into concrete actions
+Quando('adiciono {int} unidade\(s)') do |quantidade|
+  quantidade.times do
+    @page.call(RestaurantePage).add_to_cart(@produto_nome)
+  end
 end
 
-Entao('devera ser adiciona {int} unidade\(s) desse item') do |int|
-# Entao('devera ser adiciona {float} unidade\(s) desse item') do |float|
-  pending # Write code here that turns the phrase above into concrete actions
+Entao('devera ser adicionado {int} unidade\(s) desse item') do |quantidade|
+ expect(@page.call(CartView).box).to have_content "(#{quantidade}x) #{@produto_nome}"
 end
 
-Entao('o valor total deve ser de {string}') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Entao('o valor total deve ser de {string}') do |valor_total|
+  expect(@page.call(CartView).total_cart.text).to eql valor_total
+end
+
+Dado('que os produtos desejado são') do |table|
+  @produto_list = table.hashes
+end
+
+Quando('adiciono todos os itens') do
+  @produto_list.each do |produto|
+    produto['quantidade'].to_i.times do
+       @page.call(RestaurantePage).add_to_cart(produto['nome'])
+    end
+  end
+end
+
+Entao('devera apresentar todos os itens no carrinho') do
+  @produto_list.each do |p|
+    expect(@page.call(CartView).box).to have_content "(#{p['quantidade']}x) #{p['nome']}"
+  end
 end

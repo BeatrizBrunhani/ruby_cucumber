@@ -12,3 +12,7 @@ menu_restaurants: '.restaurant-item'
 menu_produtos: '.menu-item-info-box'
 detail_rest: '#detail'
 cart: '.add-to-cart'
+
+#cart view
+
+box_cart: '#cart'

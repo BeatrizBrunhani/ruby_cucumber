@@ -1,8 +1,14 @@
 require 'capybara'
 require 'capybara/cucumber'
 require 'pry'
+require 'report_builder'
 require 'rspec'
 require 'selenium-webdriver'
+
+require_relative 'helpers'
+
+#World(Helpers) # deixando o arquivo helpers visivel para todos, precisa dar o include no arquivo helpers include Capybara::DSL
+include Helpers # deixando o arquivo helpers visivel para todos, nao preciso dar o include no arquivo helpers ex include Capybara::DSL
 
 CONFIG = YAML.load_file("features/support/config/environments/#{ENV['ENV_TYPE']}.yaml")
 EL = YAML.load_file('features/support/config/elements.yaml')

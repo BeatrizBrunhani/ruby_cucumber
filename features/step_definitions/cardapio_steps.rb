@@ -1,9 +1,3 @@
-
-
-Quando('escolho o restaurante {string}') do |restaurante|
-  @page.call(RestaurantesListPage).go(restaurante)
-end
-
 Então('os itens do cardapio serao apresentados') do |table|
   itens = @page.call(RestaurantePage).menu
   prod_data = table.hashes # tabela em coluna

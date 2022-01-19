@@ -5,6 +5,6 @@ Dado('que o usuario acesse a lista de restaurantes') do
   }
 end
 
-Dado('seleciona o restaurante {string}') do |restaurante|
-  pending # Write code here that turns the phrase above into concrete actions
+Quando('escolho o restaurante {string}') do |restaurante|
+  @page.call(RestaurantesListPage).go(restaurante)
 end
