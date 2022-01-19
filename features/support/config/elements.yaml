@@ -16,3 +16,8 @@ cart: '.add-to-cart'
 #cart view
 
 box_cart: '#cart'
+total_cart: 'tr'
+total_cart_text: 'td'
+iten_rmv_cart: 'table tbody tr'
+rmv_cart: '.danger'
+
