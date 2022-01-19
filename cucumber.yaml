@@ -1,0 +1,8 @@
+--- 
+default: -p bdd -p chrome -p dev
+
+bdd: -f pretty
+dot: -f progress
+chrome: BROWSER=chrome
+chrome_headless: BROWSER=chrome_headless
+dev: ENV_TYPE=dev

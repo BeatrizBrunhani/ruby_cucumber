@@ -1,0 +1,14 @@
+---
+# elementos das paginas
+
+## home
+btn_restaurante: 'div[class*=jumbotron] a[href="/restaurants"]'
+
+## lista restaurantes
+menu_restaurants: '.restaurant-item' 
+
+# restaurante
+
+menu_produtos: '.menu-item-info-box'
+detail_rest: '#detail'
+cart: '.add-to-cart'
