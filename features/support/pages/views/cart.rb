@@ -1,10 +1,15 @@
 require_relative '../base_page'
 
 class CartView < BasePage
-  attr_reader :box_cart
+  attr_reader :box_cart, :total_cart, :total_cart_text, :iten_rmv_cart, :rmv_cart
 
   def initialize
     @box_cart = EL['box_cart']
+    @total_cart = EL['total_cart']
+    @total_cart_text = EL['total_cart_text']
+    @iten_rmv_cart = EL['iten_rmv_cart']
+    @rmv_cart = EL['rmv_cart']
+    
   end
 
   def box
@@ -14,4 +19,9 @@ class CartView < BasePage
   def total_cart
     box.find('tr', text: 'Total:').find('td')
   end
+
+  def remove_iten(item)
+    box.all(iten_rmv_cart)[item].find(rmv_cart).click
+  end
+
 end  

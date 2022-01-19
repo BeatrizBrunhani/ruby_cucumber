@@ -33,3 +33,19 @@ Funcionalidade: Carrinho
     Quando adiciono todos os itens 
     Entao devera apresentar todos os itens no carrinho 
     E o valor total deve ser de 'R$ 29,60'
+
+@total
+  Esquema do Cenario: Remover iten do carrinho
+    Dado que os produtos adicionados são
+      | nome                   | preco    | quantidade |
+      | Cup Cake               | R$ 8,70  | 1          |
+      | Donut                  | R$ 2,50  | 1          |
+      | Pão Artesanal Italiano | R$ 15,90 | 1          |
+    Quando o usuario remove somente o item <item>
+    Entao  valor total deve ser de <total>
+
+      Exemplos: 
+        | item | total      |
+        | 0    | 'R$ 18,40' |
+        | 1    | 'R$ 24,60' |
+        | 2    | 'R$ 11,20' |

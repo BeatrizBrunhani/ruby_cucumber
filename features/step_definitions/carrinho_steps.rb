@@ -32,8 +32,25 @@ Quando('adiciono todos os itens') do
   end
 end
 
+Dado('que os produtos adicionados são') do |table|
+  @produto_list = table.hashes
+  # DINAMIC STEPS REUTILIZAR STEPS QUE JA ESTAO PRONTOS
+  steps %{
+    Quando adiciono todos os itens 
+  }
+end
+
+
 Entao('devera apresentar todos os itens no carrinho') do
   @produto_list.each do |p|
     expect(@page.call(CartView).box).to have_content "(#{p['quantidade']}x) #{p['nome']}"
   end
+end
+
+Quando('o usuario remove somente o item {int}') do |item|
+    @page.call(CartView).remove_iten(item)
+end
+
+Entao('valor total deve ser de {string}') do |expect_total|
+  expect(@page.call(CartView).total_cart.text).to eql expect_total
 end
