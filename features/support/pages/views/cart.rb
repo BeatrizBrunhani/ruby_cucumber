@@ -1,15 +1,15 @@
-require_relative '../base_page'
+require_relative '../base_page' 
 
 class CartView < BasePage
-  attr_reader :box_cart, :total_cart, :total_cart_text, :iten_rmv_cart, :rmv_cart
+  attr_reader :box_cart, :total_cart, :total_cart_text, :table_cart, :rmv_cart, :menu_produtos
 
   def initialize
     @box_cart = EL['box_cart']
     @total_cart = EL['total_cart']
     @total_cart_text = EL['total_cart_text']
-    @iten_rmv_cart = EL['iten_rmv_cart']
+    @table_cart = EL['table_cart']
     @rmv_cart = EL['rmv_cart']
-    
+    @menu_produtos = EL['menu_produtos']
   end
 
   def box
@@ -28,4 +28,7 @@ class CartView < BasePage
     click_button 'Limpar'
   end
 
+  def close_cart
+    click_link 'Fechar Pedido'
+  end  
 end  

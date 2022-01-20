@@ -70,3 +70,22 @@ end
 Quando('o usuario limpa o carrinho') do
   @page.call(CartView).clean_cart
 end
+
+Quando('o adiciona itens ao carrinho') do
+  @page.call(CartView).close_cart
+end
+
+Entao('o valor total dos itens deverá ser {string}') do |iten_cart|
+  #expect(@page.call(OrderPage).total_iten).to have_content iten_cart
+  expect(@page.call(OrderPage).shipping[0]).to have_content iten_cart 
+end
+
+Entao('o valor do frete deve ser igual a {string}') do |frete|
+  #expect(@page.call(OrderPage).frete).to have_content frete
+  expect(@page.call(OrderPage).shipping[1]).to have_content frete
+end
+
+Entao('o valor do carrinho deve ser igual a {string}') do |total|
+  #expect(@page.call(OrderPage).total).to have_content total
+  expect(@page.call(OrderPage).shipping[2]).to have_content total
+end

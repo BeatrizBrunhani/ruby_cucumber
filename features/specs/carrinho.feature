@@ -59,6 +59,7 @@ Funcionalidade: Carrinho
       | Pão Artesanal Italiano | R$ 15,90 | 1          |
     Quando o usuario remove todos os itens 
     Entao a seguinte mensagem sera apresentada 'Seu carrinho está vazio!'  
+
 @remove
   Cenario: Limpar carrinho
     Dado que os produtos adicionados são
@@ -69,6 +70,7 @@ Funcionalidade: Carrinho
     Quando o usuario limpa o carrinho
     Entao a seguinte mensagem sera apresentada 'Seu carrinho está vazio!'  
 
+@frete
     Cenario: Validar valor total e frete
     Dado que os produtos adicionados são
       | nome                   | preco    | quantidade |
@@ -76,6 +78,6 @@ Funcionalidade: Carrinho
       | Donut                  | R$ 2,50  | 1          |
       | Pão Artesanal Italiano | R$ 15,90 | 1          |
     Quando o adiciona itens ao carrinho
-    Entao o valor total dos itens deverá ser ''
-    E o valor do frete deve ser igual a ''
-    E o valor do carrinho deve ser igual a ''
+    Entao o valor total dos itens deverá ser 'R$ 27,10'
+    E o valor do frete deve ser igual a 'R$ 8,00'
+    E o valor do carrinho deve ser igual a 'R$ 35,10'
