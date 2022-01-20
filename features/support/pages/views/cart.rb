@@ -21,7 +21,7 @@ class CartView < BasePage
   end
 
   def remove_iten(item)
-    box.all(iten_rmv_cart)[item].find(rmv_cart).click
+    box.all('table tbody tr')[item].find('.danger').click
   end
 
 end  

@@ -18,9 +18,13 @@ def exception_message(scn)
 end
 
 After do |scenario|
-  take_screenshot(scenario) if scenario.failed?
+  scenario_name = scenario.name.gsub(/\s+/, '_').tr('/', '_')
 
-  exception_message(scenario)
+  if scenario.failed?
+    take_screenshot(scenario_name.downcase!, 'falhou')
+  else
+    take_screenshot(scenario_name.downcase!, 'passou')
+  end
 end
 
 #configuracao para exibicao do terminal, pode usar em qql projeto
