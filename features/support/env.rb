@@ -1,5 +1,6 @@
 require 'capybara'
 require 'capybara/cucumber'
+require 'faker'
 require 'pry'
 require 'pry-nav'
 require 'pry-remote'
@@ -26,6 +27,6 @@ Capybara.configure do |c|
   end
   
   c.default_driver = @driver
-  c.app_host = CONFIG['URL_SP3']
+  c.app_host = CONFIG['URL_SP4']
   c.default_max_wait_time = 10
 end

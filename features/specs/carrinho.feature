@@ -5,6 +5,7 @@ Funcionalidade: Carrinho
   Sendo que ja decidiu o que deseja comer
   Possa adicionar o item ao carrinho
 
+# tudo que está no contexto é realizado em todos os cenarios sempre ao rodar
   Contexto: Restaurantes
     Dado que o usuario acesse a lista de restaurantes
     E escolho o restaurante 'Bread & Bakery'
@@ -49,3 +50,34 @@ Funcionalidade: Carrinho
         | 0    | 'R$ 18,40' |
         | 1    | 'R$ 24,60' |
         | 2    | 'R$ 11,20' |
+
+  Cenario: Remover todos os itens
+    Dado que os produtos adicionados são
+      | nome                   | preco    | quantidade |
+      | Cup Cake               | R$ 8,70  | 1          |
+      | Donut                  | R$ 2,50  | 1          |
+      | Pão Artesanal Italiano | R$ 15,90 | 1          |
+    Quando o usuario remove todos os itens 
+    Entao a seguinte mensagem sera apresentada 'Seu carrinho está vazio!'  
+
+@remove
+  Cenario: Limpar carrinho
+    Dado que os produtos adicionados são
+      | nome                   | preco    | quantidade |
+      | Cup Cake               | R$ 8,70  | 1          |
+      | Donut                  | R$ 2,50  | 1          |
+      | Pão Artesanal Italiano | R$ 15,90 | 1          |
+    Quando o usuario limpa o carrinho
+    Entao a seguinte mensagem sera apresentada 'Seu carrinho está vazio!'  
+
+@frete
+    Cenario: Validar valor total e frete
+    Dado que os produtos adicionados são
+      | nome                   | preco    | quantidade |
+      | Cup Cake               | R$ 8,70  | 1          |
+      | Donut                  | R$ 2,50  | 1          |
+      | Pão Artesanal Italiano | R$ 15,90 | 1          |
+    Quando o adiciona itens ao carrinho
+    Entao o valor total dos itens deverá ser 'R$ 27,10'
+    E o valor do frete deve ser igual a 'R$ 8,00'
+    E o valor do carrinho deve ser igual a 'R$ 35,10'
