@@ -5,6 +5,8 @@ Before do
   @page = lambda do |klass|
     klass.new
   end    
+
+  Faker::Config.locale = 'pt-BR'
 end
 
 def exception_message(scn)
