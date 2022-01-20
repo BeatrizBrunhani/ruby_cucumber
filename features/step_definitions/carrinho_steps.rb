@@ -54,3 +54,19 @@ end
 Entao('valor total deve ser de {string}') do |expect_total|
   expect(@page.call(CartView).total_cart.text).to eql expect_total
 end
+
+Quando('o usuario remove todos os itens') do
+  # for each na lista de produto (produto_list) passando valor e index(itens na tabela) e ira pegar os itens pelo index o,1,2
+  @produto_list.each_with_index do |value, index|
+    @page.call(CartView).remove_iten(index) # remove todos os itens pelo index 0,1,2 o fro each comeca sempre em 0
+  end
+end
+
+Entao('a seguinte mensagem sera apresentada {string}') do |mensagem|
+  expect(@page.call(CartView).box).to have_content mensagem # buscando dentro de um elemento especifico, pq o elemento esta mapeado dentro deste metodo
+  expect(page).to have_content mensagem # buscando na pagina inteira a mensagem
+end
+
+Quando('o usuario limpa o carrinho') do
+  @page.call(CartView).clean_cart
+end

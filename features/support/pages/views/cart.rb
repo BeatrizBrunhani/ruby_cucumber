@@ -24,4 +24,8 @@ class CartView < BasePage
     box.all('table tbody tr')[item].find('.danger').click
   end
 
+  def clean_cart
+    click_button 'Limpar'
+  end
+
 end  
