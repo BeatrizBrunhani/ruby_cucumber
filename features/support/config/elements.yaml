@@ -20,7 +20,7 @@ cart: '.add-to-cart'
 #cart view
 
 box_cart: '#shopping-cart'
-total_cart: 'tr'
+total_cart_el: 'tr'
 total_cart_text: 'td'
 rmv_cart: '.danger'
 

@@ -62,10 +62,10 @@ class OrderPage < BasePage
     last_name = Faker::Name.last_name
     email = Faker::Internet.email.rpartition('@')[2]
     find(field_name).set "#{first_name} #{last_name}"
-    find(field_email).set "#{first_name}_#{last_name}@#{email}" 
-    find(field_email_confirm).set "#{first_name}_#{last_name}@#{email}" 
+    find(field_email).set "#{first_name}_#{last_name}@#{email}"
+    find(field_email_confirm).set "#{first_name}_#{last_name}@#{email}"
     find(field_address).set Faker::Address.street_name
     find(field_number).set Faker::Address.building_number
     find(field_optional_adress).set Faker::Address.secondary_address
-  end 
+  end
 end

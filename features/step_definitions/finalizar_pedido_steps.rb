@@ -1,6 +1,6 @@
 Dado('que o usuario finalizou o pedido com os itens') do |table|
   steps %{
-    Quando acesso a lista de restaurantes 
+    Quando acesso a lista de restaurantes
   }
   @page.call(RestaurantesListPage).go('Green Food')
   @produto_list = table.hashes

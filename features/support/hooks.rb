@@ -4,7 +4,7 @@ Before do
 
   @page = lambda do |klass|
     klass.new
-  end    
+  end
 
   Faker::Config.locale = 'pt-BR'
 end
@@ -29,7 +29,7 @@ After do |scenario|
   end
 end
 
-#configuracao para exibicao do terminal, pode usar em qql projeto
+# configuracao para exibicao do terminal, pode usar em qql projeto
 AfterConfiguration do |config|
   config.on_event(:test_case_finished) do |event|
     puts "\n----------------------------------------------"
@@ -46,7 +46,7 @@ at_exit do
     'Browser' => Capybara.default_driver.to_s.capitalize,
     'Environment' => ENV['ENV_TYPE'],
     'Data do Teste' => Time.now.strftime('%d/%B/%Y'),
-    'Hora do Teste' => time = Time.now.strftime('%H:%M:%S')
+    'Hora do Teste' => Time.now.strftime('%H:%M:%S')
   }
   ReportBuilder.configure do |config|
     config.input_path = 'report/report.json'
