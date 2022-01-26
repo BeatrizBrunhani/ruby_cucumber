@@ -13,6 +13,5 @@ class HomePage < BasePage
 
   def go_list_restaurants
     find(btn_restaurante).click
-  end    
-
-end    
+  end
+end

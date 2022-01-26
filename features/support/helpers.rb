@@ -17,6 +17,5 @@ module Helpers
     # screenshot = screenshot.tr!(' ', '_') if screenshot.include?(' ')
     # page.save_screenshot(screenshot)
     # attach(screenshot, 'image/png')
-  end 
+  end
 end
-

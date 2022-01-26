@@ -5,7 +5,7 @@ Então('os itens do cardapio serao apresentados') do |table|
     expect(itens[index]).to have_text value['produto'].upcase
     expect(itens[index]).to have_text value['descricao']
     expect(itens[index]).to have_text value['preco']
-  end    
+  end
 end
 
 Então('as informacoes adicionais serao apresentadas') do |table|
