@@ -1,0 +1,50 @@
+name: Ruby-ci
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/**
+  pull_request:
+    branches:
+      - main
+      - develop
+      - feature/**
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    - name: Installing chrome and chromedriver
+      run: |
+        sudo apt-get -y install google-chrome-stable xvfb unzip libxi6 libgconf-2-4
+                sudo apt remove
+                sudo apt autoclean
+                sudo apt clean
+                cd /tmp
+                wget "https://chromedriver.storage.googleapis.com/97.0.4692.71/chromedriver_linux64.zip
+                unzip chromedriver_linux64.zip
+                sudo mv chromedriver /usr/bin/chromedriver
+                sudo chown root:root /usr/bin/chromedriver
+                sudo chmod +x /usr/bin/chromedriver
+                
+    - name: Installing Ruby          
+      uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      with:
+        ruby-version: 2.7
+        
+    - name: Installing dependencies
+      run: bundle install --retry=3 --jobs=4
+      
+    - name: Run Tests
+      run: cucumber -p ci --retry 2
+      
+    - name: Publish Report
+      uses: actions/upload-artifact@v2
+      with:
+          name: report
+          path: report/report.html
