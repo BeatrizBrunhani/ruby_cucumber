@@ -1,5 +1,6 @@
 --- 
-default: -p bdd -p chrome -p dev -p html -p json -p screen --publish-quiet   
+default: -p bdd -p chrome -p dev -p html -p json -p screen --publish-quiet 
+ci: -p bdd -p chrome_headless -p dev -p html -p json -p screen --publish-quiet 
 
 bdd: -f pretty
 dot: -f progress
