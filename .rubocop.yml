@@ -1,0 +1,23 @@
+AllCops:
+  NewCops: disable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+  
+Layout/LineLength:
+  Max: 200
+
+Style/Documentation:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 80  
